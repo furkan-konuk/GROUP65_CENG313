@@ -1,0 +1,6 @@
+data/
+*.zip
+kaggle.json
+submission.csv
+__pycache__/
+.ipynb_checkpoints/
