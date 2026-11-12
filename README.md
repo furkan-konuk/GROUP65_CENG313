@@ -31,7 +31,7 @@ non-Latin character analysis, frequent words, train/test comparison.
 
   1. Random guess
   2. Majority class
-  3. Rule: the text with the higher share of Latin letters is real (idea from the organizers' baseline)
+  3. Rule: the text with the higher share of Latin letters is real (idea adapted from the organizers' baseline notebook: https://www.kaggle.com/code/dawidx/baseline-solution; own implementation)
   4. Logistic regression on hand-crafted feature differences `f(text_1) − f(text_2)`
   5. Logistic regression on character n-gram TF-IDF differences
 * Models 4–5 use **swap augmentation**: swapping the two texts negates the features and flips the label,
@@ -60,12 +60,17 @@ the hardest fakes are near-copies of the real text with only a few words changed
 ```
 GROUP65_CENG313/
 ├── README.md
+├── requirements.txt
+├── .gitignore
 ├── assignment1_eda_baseline.ipynb
 ├── assignment2_solution.ipynb      (Assignment 2)
-└── src/
-    ├── data.py      # loading the article pairs + labels
-    ├── models.py    # baseline models + cross-validation
-    └── utils.py     # text features, seeding, submission writer
+├── src/
+│   ├── __init__.py
+│   ├── data.py      # loading the article pairs + labels
+│   ├── models.py    # baseline models + cross-validation
+│   └── utils.py     # text features, seeding, submission writer
+├── data/            # NOT committed (Kaggle rules)
+└── submissions/     # Kaggle submission screenshots
 ```
 
 ## 5. How to run
@@ -74,9 +79,11 @@ GROUP65_CENG313/
 2. Kaggle → Settings → API → **Create New Token** → downloads `kaggle.json`.
 3. Open `assignment1_eda_baseline.ipynb` in Google Colab
 (File → Open notebook → GitHub → paste this repo's URL).
-4. Set `REPO_URL` in the first code cell, then **Runtime → Run all**.
+4. **Runtime → Run all**.
 When asked, upload `kaggle.json`; the data is downloaded into `data/` automatically.
 5. The last section writes `submission.csv`; submit it on Kaggle (max 3 per day).
+
+To run locally instead: `pip install -r requirements.txt`, put the Kaggle files under `data/`, and run the notebook.
 
 `data/` is not committed (see `.gitignore`).
 
@@ -95,5 +102,6 @@ When asked, upload `kaggle.json`; the data is downloaded into `data/` automatica
 |-|-|-|
 |2026-11-09|TF-IDF char n-gram LogReg|0.87136|
 
+Competition closed — evaluated with a Kaggle late submission.
 
-
+![Kaggle late submission](submissions/kaggle_late_submission.png)
