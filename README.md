@@ -98,9 +98,9 @@ To run locally instead: `pip install -r requirements.txt`, put the Kaggle files 
 
 ## 7. Kaggle submission history
 
-|Date|Model|Public score|
-|-|-|-|
-|2026-11-09|TF-IDF char n-gram LogReg|0.87136|
+|Date|Model|Public score|Private score|
+|-|-|-|-|
+|2026-11-09|TF-IDF char n-gram LogReg|0.87136|0.87030|
 
 Competition closed — evaluated with a Kaggle late submission.
 
